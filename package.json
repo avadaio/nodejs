@@ -1,7 +1,7 @@
 {
   "name": "avadaio-node",
   "version": "0.0.5",
-  "description": "Api for Avada Email Marketing",
+  "description": "Api for AVADA Email Marketing",
   "main": "lib/index.js",
   "typings": "./types/index.d.ts",
   "repository": {
@@ -15,7 +15,8 @@
     "prepare": "yarn run production",
     "production": "babel src --out-dir lib --copy-files --include-dotfiles",
     "development": "babel src --out-dir lib --copy-files --source-maps --include-dotfiles",
-    "watch": "babel src --out-dir lib --copy-files --source-maps --include-dotfiles --watch --verbose"
+    "watch": "babel src --out-dir lib --copy-files --source-maps --include-dotfiles --watch --verbose",
+    "test": "node lib/index.js"
   },
   "homepage": "https:/avada.io",
   "dependencies": {
