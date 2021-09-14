@@ -1,0 +1,42 @@
+{
+  "name": "avadaio-node",
+  "version": "0.0.5",
+  "description": "Api for Avada Email Marketing",
+  "main": "lib/index.js",
+  "typings": "./types/index.d.ts",
+  "repository": {
+    "email": "anhnt@mageplaza.com"
+  },
+  "engines": {
+    "node": ">=8",
+    "npm": ">=5"
+  },
+  "scripts": {
+    "prepare": "yarn run production",
+    "production": "babel src --out-dir lib --copy-files --include-dotfiles",
+    "development": "babel src --out-dir lib --copy-files --source-maps --include-dotfiles",
+    "watch": "babel src --out-dir lib --copy-files --source-maps --include-dotfiles --watch --verbose"
+  },
+  "homepage": "https:/avada.io",
+  "dependencies": {
+    "node-fetch": "^2.6.0",
+    "crypto": "^1.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/plugin-transform-runtime": "^7.12.10"
+  },
+  "keywords": [
+    "avadaio",
+    "node",
+    "emailmarketing"
+  ],
+  "author": "hoangnd-mageplaza",
+  "license": "MIT",
+  "files": [
+    "lib",
+    "types"
+  ]
+}
