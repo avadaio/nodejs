@@ -2,7 +2,7 @@
   "name": "avadaio-node",
   "version": "0.0.5",
   "description": "Api for AVADA Email Marketing",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "typings": "./types/index.d.ts",
   "repository": {
     "email": "anhnt@mageplaza.com"
@@ -13,26 +13,31 @@
   },
   "scripts": {
     "prepare": "yarn run production",
-    "production": "babel src --out-dir lib --copy-files --include-dotfiles",
-    "development": "babel src --out-dir lib --copy-files --source-maps --include-dotfiles",
-    "watch": "babel src --out-dir lib --copy-files --source-maps --include-dotfiles --watch --verbose",
+    "production": "cross-env NODE_ENV=production ENVIRONMENT=production ./node_modules/.bin/webpack --config=webpack.config.js",
+    "development": "cross-env NODE_ENV=development ENVIRONMENT=development ./node_modules/.bin/webpack  --config=webpack.config.js",
+    "watch": "cross-env NODE_ENV=development ENVIRONMENT=development ./node_modules/.bin/webpack --config=webpack.config.js --watch",
     "test": "node lib/index.js"
   },
   "homepage": "https:/avada.io",
   "dependencies": {
-    "node-fetch": "^2.6.0",
-    "crypto": "^1.0.1"
+    "crypto": "^1.0.1",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.0",
     "@babel/core": "^7.6.0",
+    "babel-loader": "^8.0.6",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.10.1",
     "@babel/preset-env": "^7.6.0",
-    "@babel/plugin-transform-runtime": "^7.12.10",
+    "cross-env": "^5.2.1",
     "eslint": "^6.3.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^6.2.0",
     "eslint-plugin-prettier": "^3.1.0",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^4.8.0"
   },
   "keywords": [
     "avadaio",

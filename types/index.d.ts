@@ -24,5 +24,15 @@ export = AvadaEmailMarketing;
 
 /*~ Write your module's methods and properties in this class */
 declare class AvadaEmailMarketing {
+    constructor(
+        config: AvadaEmailMarketing.Config
+    );
+}
 
+declare namespace AvadaEmailMarketing {
+    interface Config {
+        appId: string,
+        apiKey: string,
+        apiUrl?: string
+    }
 }

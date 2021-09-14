@@ -84,3 +84,4 @@ serviceAccount.*.json
 /packages/assets/env.prod
 /packages/assets/env.staging
 python-functions/__pycache__/
+dist/
