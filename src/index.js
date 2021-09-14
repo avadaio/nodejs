@@ -1,5 +1,6 @@
 const crypto = require('crypto');
 const fetch = require('node-fetch');
+const resources = require('./resources');
 
 /**
  * @description
@@ -9,10 +10,13 @@ const fetch = require('node-fetch');
  */
 const DEFAULT_API_URL = 'app.avada.io';
 
+/**
+ * @type AvadaEmailMarketing
+ */
 class AvadaEmailMarketing {
   /**
    * Constructor
-   *
+   * @constructor AvadaEmailMarketing
    * @param {string} appId
    * @param {string} apiKey
    * @param {string} apiUrl
@@ -70,5 +74,7 @@ class AvadaEmailMarketing {
     return resp.json();
   }
 }
+
+resources.registerAll(AvadaEmailMarketing);
 
 module.exports = AvadaEmailMarketing;

@@ -24,15 +24,26 @@ export = AvadaEmailMarketing;
 
 /*~ Write your module's methods and properties in this class */
 declare class AvadaEmailMarketing {
-    constructor(
-        config: AvadaEmailMarketing.Config
-    );
+  constructor(config: AvadaEmailMarketing.Config);
+  getApiUrl: (endpoint: string) => string;
+
+  makeRequest: (params: AvadaEmailMarketing.MakeRequestParams) => Promise<any>;
+
+  connection: {
+    test: () => Promise<any>
+  }
 }
 
 declare namespace AvadaEmailMarketing {
-    interface Config {
-        appId: string,
-        apiKey: string,
-        apiUrl?: string
-    }
+  interface Config {
+    appId: string;
+    apiKey: string;
+    apiUrl?: string;
+  }
+
+  interface MakeRequestParams {
+    body: object;
+    endpoint: string;
+    isTest: boolean;
+  }
 }

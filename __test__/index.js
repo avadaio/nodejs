@@ -1,12 +1,13 @@
-const AVADAIO = require('../src');
+const AvadaEmailMarketing = require('../src');
 
 (async () => {
   try {
-    const avadaio = new AVADAIO({
+    /** @type AvadaEmailMarketing */
+    const avadaio = new AvadaEmailMarketing({
       appId: 'tTg4lFZkpV6vH74n6UB6',
       apiKey: 'd3af7f191829062d877871d4b28c3445'
     });
-    const resp = await avadaio.makeRequest({body: {}, endpoint: '/connects', isTest: true});
+    const resp = await avadaio.connection.test();
     console.log(resp);
   } catch (e) {
     console.error(e);
