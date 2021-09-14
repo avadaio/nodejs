@@ -17,8 +17,5 @@ module.exports = {
       }
     ]
   },
-  stats: {
-    colors: true
-  },
   target: 'node'
 };
