@@ -41,38 +41,53 @@ class AvadaEmailMarketing {
     return `https://${this.apiUrl}/app/api/v1${endpoint}`;
   }
 
+  getHmac(body, noHash = false) {
+    if (!noHash) {
+      return crypto
+        .createHmac('sha256', this.apiKey)
+        .update(JSON.stringify(body))
+        .digest('base64');
+    }
+
+    return this.apiKey;
+  }
+
   /**
    * Helper to make request to AVADA API
    *
    * @param {object} body
    * @param {string} endpoint
+   * @param {string} method
    * @param {boolean} isTest
    * @returns {Promise<*>}
    */
-  async makeRequest({body, endpoint, isTest = false}) {
-    const hmac = crypto
-      .createHmac('sha256', this.apiKey)
-      .update(JSON.stringify(body))
-      .digest('base64');
-
+  async makeRequest({endpoint, method = 'POST', isTest = false, body = {}}) {
     const url = this.getApiUrl(endpoint);
     const headers = {
-      'Content-Type': 'application/json',
       'X-EmailMarketing-App-Id': this.appId,
-      'X-EmailMarketing-Hmac-Sha256': hmac,
-      'X-EmailMarketing-Connection-Test': true
+      'X-EmailMarketing-Hmac-Sha256': this.getHmac(body, method === 'GET')
     };
+    if (method !== 'GET') {
+      headers['Content-Type'] = 'application/json';
+    }
     if (isTest) {
       headers['X-EmailMarketing-Connection-Test'] = true;
     }
-    const resp = await fetch(url, {
-      method: 'POST',
-      body: JSON.stringify(body),
+    const options = {
+      method: method,
       headers
-    });
+    };
+    if (!isEmpty(body)) {
+      options['body'] = JSON.stringify(body);
+    }
+    const resp = await fetch(url, options);
 
     return resp.json();
   }
+}
+
+function isEmpty(obj) {
+  return [Object, Array].includes((obj || {}).constructor) && !Object.entries(obj || {}).length;
 }
 
 resources.registerAll(AvadaEmailMarketing);

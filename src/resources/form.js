@@ -1,4 +1,4 @@
-class Connection {
+class Form {
   /**
    * @constructor
    *
@@ -7,9 +7,9 @@ class Connection {
   constructor(avadaio) {
     this.avadaio = avadaio;
   }
-  test() {
-    return this.avadaio.makeRequest({endpoint: '/connects', isTest: true});
+  list() {
+    return this.avadaio.makeRequest({method: 'GET', endpoint: '/forms'});
   }
 }
 
-module.exports = Connection;
+module.exports = Form;

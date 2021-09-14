@@ -1,4 +1,4 @@
-const resourceModules = ['connection'];
+const resourceModules = ['connection', 'form'];
 
 /**
  * Registers resources on the `AvadaEmailMarketing` class.
@@ -26,4 +26,4 @@ function registerAll(AVADAIO) {
 
 module.exports = {
   registerAll
-}
+};

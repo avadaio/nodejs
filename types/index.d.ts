@@ -30,8 +30,12 @@ declare class AvadaEmailMarketing {
   makeRequest: (params: AvadaEmailMarketing.MakeRequestParams) => Promise<any>;
 
   connection: {
-    test: () => Promise<any>
-  }
+    test: () => Promise<AvadaEmailMarketing.ApiResponse>;
+  };
+
+  form: {
+    list: () => Promise<AvadaEmailMarketing.ApiResponse>;
+  };
 }
 
 declare namespace AvadaEmailMarketing {
@@ -45,5 +49,11 @@ declare namespace AvadaEmailMarketing {
     body: object;
     endpoint: string;
     isTest: boolean;
+  }
+
+  interface ApiResponse {
+    success: boolean;
+    message: string;
+    data?: any;
   }
 }
