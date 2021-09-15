@@ -1,6 +1,6 @@
 {
-  "name": "avadaio-node-test",
-  "version": "1.0.0-alpha.0",
+  "name": "avadaio_node_test",
+  "version": "1.0.0-alpha.1",
   "description": "AVADA Email Marketing API bindings for Node.js",
   "main": "dist/index.js",
   "typings": "./types/index.d.ts",

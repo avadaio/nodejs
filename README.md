@@ -125,29 +125,29 @@ More examples can be found in the `__test__` folder in the project source code.
 ## Available resources and methods
 
 - connection
-  - `test()`
+  - `test()` Test the connection using your `apiKey` and `appId` 
 - form
-  - `list()`
+  - `list()` Get a list of inline forms to integrate AVADA Forms into your page builder
 - contact
-  - `create(data)`
-  - `update(data)`
-  - `bulk(data)`
+  - `create(data)` Create a new contact in your AVADA admin
+  - `update(data)` Update an existing contact in your AVADA admin
+  - `bulk(data)` Create new contacts in your AVADA admin in bulk
 - subscriber
-  - `add(data)`
+  - `add(data)` Add a new contact to your contact list as a subscriber. Trigger the New Subscriber automation event.
 - review
-  - `submit(data)`
+  - `submit(data)` Trigger the submit of a new review on your store. Trigger On new review automation event.
 - checkout
-  - `create(data)`
-  - `update(data)`
-  - `remove(id)`
+  - `create(data)` Trigger a new checkout event to AVADA, which will be used for the Abandoned Cart Automation.
+  - `update(data)` Trigger a update to a checkout event to AVADA. For example, update checkout email so that the cart will be qualified for Abandoned Cart Email.
+  - `remove(id)` Remove a checkout.
 - order
-  - `create(data)`
-  - `update(data)`
-  - `complete(data)`
-  - `bulk(data)`
-  - `refund(data)`
-  - `invoice(data)`
-  - `ship(data)`
+  - `create(data)` Trigger a new order event to AVADA. Trigger New Order automation event.
+  - `update(data)` Update an existing order.
+  - `complete(data)` Complete an order. Trigger Cross-sell, Up-sell automation events.
+  - `bulk(data)` Sync your orders to AVADA using bulk order inserts.
+  - `refund(data)` Trigger a refund event to AVADA
+  - `invoice(data)` Trigger a fulfillment event to AVADA
+  - `ship(data)` Trigger a shipping event to AVADA
 
 The detailed data param for each resource already defined in the `index.d.ts` file which allow suggestion during development process in IDE
 

@@ -18,6 +18,7 @@ class AvadaEmailMarketing {
   /**
    * Constructor
    * @constructor AvadaEmailMarketing
+   *
    * @param {string} appId
    * @param {string} apiKey
    * @param {string} apiUrl
