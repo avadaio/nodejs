@@ -25,15 +25,15 @@ class Checkout {
   }
 
   /**
-   * @description Update AVADA Email Marketing contact data
+   * @description Update AVADA Email Marketing existed checkout
    *
-   * @param {AvadaEmailMarketing.ContactInputData} data
+   * @param {AvadaEmailMarketing.CheckoutInputData} data
    * @returns {Promise<AvadaEmailMarketing.ApiResponse>}
    */
   update(data) {
     return this.avadaio.makeRequest({
       method: 'PUT',
-      endpoint: '/customers',
+      endpoint: '/checkouts',
       body: {
         data
       }
@@ -41,17 +41,17 @@ class Checkout {
   }
 
   /**
-   * @description Create AVADA Email Marketing new contacts in bulk
+   * @description Delete AVADA Email Marketing existed checkout
    *
-   * @param {AvadaEmailMarketing.ContactInputData[]} data
+   * @param {number|string} id
    * @returns {Promise<*>}
    */
-  bulk(data) {
+  remove(id) {
     return this.avadaio.makeRequest({
-      method: 'POST',
-      endpoint: '/customers/bulk',
+      method: 'DELETE',
+      endpoint: `/checkouts?id=${id}`,
       body: {
-        data
+        data: {}
       }
     });
   }

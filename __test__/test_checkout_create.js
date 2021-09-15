@@ -7,8 +7,8 @@ const AvadaEmailMarketing = require('../src');
       appId: 'tTg4lFZkpV6vH74n6UB6',
       apiKey: 'd3af7f191829062d877871d4b28c3445'
     });
-    const resp = await avadaio.checkout.create({
-      id: 166666666,
+    const resp = await avadaio.checkout.update({
+      id: 349857984735,
       abandoned_checkout_url: 'https://amce.io/mpsmtp/abandonedcart/recover/token/xxxxxxxxxx/',
       email: 'john@doe.io',
       created_at: '2020-12-01 04:30:55',

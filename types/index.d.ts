@@ -63,9 +63,13 @@ declare class AvadaEmailMarketing {
 
   checkout: {
     create: (
-        data: AvadaEmailMarketing.CheckoutInputData
+      data: AvadaEmailMarketing.CheckoutInputData
     ) => Promise<AvadaEmailMarketing.ApiResponse>;
-  }
+    update: (
+      data: AvadaEmailMarketing.CheckoutInputData
+    ) => Promise<AvadaEmailMarketing.ApiResponse>;
+    remove: (id: number|string) => Promise<AvadaEmailMarketing.ApiResponse>;
+  };
 }
 
 declare namespace AvadaEmailMarketing {
@@ -88,71 +92,71 @@ declare namespace AvadaEmailMarketing {
   }
 
   interface CheckoutBundleItem {
-    product_id: number,
-    title: string,
-    price: string,
-    image: string,
-    quantity: number,
-    sku?: string
+    product_id: number;
+    title: string;
+    price: string;
+    image: string;
+    quantity: number;
+    sku?: string;
   }
 
   interface CheckoutLineItem {
-    type: string,
-    title: string,
-    price: string,
-    quantity: number,
-    sku?: string,
-    product_id: string,
-    image: string,
-    line_price: string,
-    frontend_link: string,
-    variant_id?: number,
-    variant_title?: string,
-    variant_price?: string,
-    variant_image?: string,
-    bundle_items?: CheckoutBundleItem[]
+    type: string;
+    title: string;
+    price: string;
+    quantity: number;
+    sku?: string;
+    product_id: string;
+    image: string;
+    line_price: string;
+    frontend_link: string;
+    variant_id?: number;
+    variant_title?: string;
+    variant_price?: string;
+    variant_image?: string;
+    bundle_items?: CheckoutBundleItem[];
   }
 
   interface CheckoutCustomerData {
-    id?: any,
-    email?: string | null,
-    name?: string,
-    first_name?: string | null,
-    last_name?: string | null,
-    phone?: string
+    id?: any;
+    email?: string | null;
+    name?: string;
+    first_name?: string | null;
+    last_name?: string | null;
+    phone?: string;
   }
 
   interface CheckoutShippingData {
-    name?: string,
-    last_name?: string,
-    phone?: string,
-    company?: string,
-    country_code?: COUNTRY_CODE,
-    zip?: string,
-    address1?: string,
-    address2?: string,
-    city?: string,
-    province_code?: string,
-    province?: string
+    name?: string;
+    last_name?: string;
+    phone?: string;
+    company?: string;
+    country_code?: COUNTRY_CODE;
+    zip?: string;
+    address1?: string;
+    address2?: string;
+    city?: string;
+    province_code?: string;
+    province?: string;
   }
 
   interface CheckoutInputData {
-    id: number,
-    abandoned_checkout_url: string,
-    email?: string,
-    created_at: Date | string,
-    updated_at: Date | string,
-    completed_at?: Date | string,
-    phone?: string,
-    customer_locale?: string,
-    line_items: CheckoutLineItem[],
-    subtotal_price: string,
-    total_tax: string,
-    total_price: string,
-    currency: string,
-    presentment_currency: string,
-    customer?: CheckoutCustomerData,
-    shipping_address?: CheckoutShippingData
+    id: number;
+    abandoned_checkout_url: string;
+    email?: string;
+    created_at: Date | string;
+    updated_at: Date | string;
+    completed_at?: Date | string;
+    phone?: string;
+    customer_locale?: string;
+    line_items: CheckoutLineItem[];
+    subtotal_price: string;
+    total_tax: string;
+    total_price: string;
+    currency: string;
+    presentment_currency: string;
+    customer?: CheckoutCustomerData;
+    shipping_address?: CheckoutShippingData;
   }
 
   interface ReviewSubmitCustomer {
