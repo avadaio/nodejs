@@ -90,31 +90,20 @@ class AvadaEmailMarketing {
     return resp.json();
   }
 
+  /**
+   * Trigger custom event for AVADA
+   *
+   * @param {string} eventId
+   * @param {any} data
+   * @returns {Promise<*>}
+   */
   async trigger(eventId, data = {}) {
-    if (typeof this.appId === 'undefined' || typeof this.apiKey === 'undefined') {
-      console.log('Please add your api key');
-    }
-    const body = {data: data};
-    const hmac = crypto
-      .createHmac('sha256', this.apiKey)
-      .update(JSON.stringify(body))
-      .digest('base64');
-
-    try {
-      const data = await fetch(`${this.apiUrl}/app/api/v1/triggers/${eventId}`, {
-        method: 'POST',
-        body: JSON.stringify(body),
-        headers: {
-          'Content-Type': 'application/json',
-          'X-EmailMarketing-App-Id': this.appId,
-          'X-EmailMarketing-Hmac-Sha256': hmac,
-          'X-AvadaTrigger-App-Id': 'true'
-        }
-      });
-      return await data.json();
-    } catch (e) {
-      console.error(e);
-    }
+    return this.makeRequest({
+      method: 'POST',
+      endpoint: `/triggers/${eventId}`,
+      body: {data},
+      isTrigger: true
+    });
   }
 }
 

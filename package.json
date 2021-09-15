@@ -1,5 +1,5 @@
 {
-  "name": "avadaio-node",
+  "name": "avadaio-node-test",
   "version": "1.0.0-alpha.0",
   "description": "AVADA Email Marketing API bindings for Node.js",
   "main": "dist/index.js",
@@ -8,7 +8,7 @@
     "email": "thomas@avada.io"
   },
   "engines": {
-    "node": ">=12",
+    "node": ">=10",
     "npm": ">=5"
   },
   "scripts": {
