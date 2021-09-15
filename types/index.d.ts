@@ -29,6 +29,8 @@ declare class AvadaEmailMarketing {
 
   makeRequest: (params: AvadaEmailMarketing.MakeRequestParams) => Promise<any>;
 
+  trigger: (eventId: string, data: any) => Promise<AvadaEmailMarketing.ApiResponse>;
+
   connection: {
     test: () => Promise<AvadaEmailMarketing.ApiResponse>;
   };
