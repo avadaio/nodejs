@@ -84,6 +84,9 @@ declare class AvadaEmailMarketing {
     bulk: (
       data: AvadaEmailMarketing.OrderCreateInputData[]
     ) => Promise<AvadaEmailMarketing.ApiResponse>;
+    refund: (
+        data: AvadaEmailMarketing.RefundInputData
+    ) => Promise<AvadaEmailMarketing.ApiResponse>;
   };
 }
 
@@ -104,6 +107,17 @@ declare namespace AvadaEmailMarketing {
     success: boolean;
     message: string;
     data?: any;
+  }
+
+  interface RefundInputData {
+    id: number;
+    order_id: number;
+    customer: OrderCustomerData;
+    currency: string;
+    created_at: Date | string;
+    updated_at: Date | string;
+    line_items: CheckoutLineItem[];
+    order_status_url: string;
   }
 
   interface OrderCustomerDefaultAddress {
