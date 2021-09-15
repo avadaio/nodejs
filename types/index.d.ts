@@ -43,8 +43,12 @@ declare class AvadaEmailMarketing {
     ) => Promise<AvadaEmailMarketing.ApiResponse>;
 
     update: (
-        data: AvadaEmailMarketing.ContactInputData
+      data: AvadaEmailMarketing.ContactInputData
     ) => Promise<AvadaEmailMarketing.ApiResponse>;
+  };
+
+  subscriber: {
+    add: (data: AvadaEmailMarketing.ContactInputData) => Promise<AvadaEmailMarketing.ApiResponse>;
   };
 }
 

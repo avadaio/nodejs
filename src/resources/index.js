@@ -1,10 +1,10 @@
-const resourceModules = ['connection', 'form', 'contact'];
+const resourceModules = ['connection', 'form', 'contact', 'subscriber'];
 
 /**
  * Registers resources on the `AvadaEmailMarketing` class.
  *
- * @param {AvadaEmailMarketing} AvadaEmailMarketing class
  * @private
+ * @param AVADAIO
  */
 function registerAll(AVADAIO) {
   resourceModules.forEach(prop => {
