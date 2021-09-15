@@ -15,7 +15,9 @@
     "prepare": "yarn run production",
     "production": "babel src --out-dir dist --copy-files --include-dotfiles",
     "development": "babel src --out-dir dist --copy-files --source-maps --include-dotfiles",
-    "watch": "babel src --out-dir dist --copy-files --source-maps --include-dotfiles --watch --verbose"
+    "watch": "babel src --out-dir dist --copy-files --source-maps --include-dotfiles --watch --verbose",
+    "test": "jest __test__ --runInBand",
+    "test-single-file": "jest __test__/test_connection.test.js"
   },
   "homepage": "https:/avada.io",
   "dependencies": {
@@ -32,7 +34,8 @@
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^6.2.0",
     "eslint-plugin-prettier": "^3.1.0",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "jest": "^27.2.0"
   },
   "keywords": [
     "avadaio",

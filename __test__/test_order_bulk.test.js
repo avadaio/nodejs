@@ -1,13 +1,11 @@
 const AVADA = require('../dist');
+const config = require('./config');
 
-(async () => {
-  try {
-    /** @type AvadaEmailMarketing */
-    const avadaio = new AVADA({
-      appId: 'tTg4lFZkpV6vH74n6UB6',
-      apiKey: 'd3af7f191829062d877871d4b28c3445'
-    });
-    const resp = await avadaio.order.refund({
+test('Testing AVADA checkout order bulk create resource...', async () => {
+  /** @type AvadaEmailMarketing */
+  const avadaio = new AVADA(config);
+  const {success} = await avadaio.order.bulk([
+    {
       id: 123,
       email: 'john@doe.io',
       status: 'subscribe',
@@ -42,15 +40,8 @@ const AVADA = require('../dist');
       total_price: '299',
       total_tax: '0',
       total_weight: '0',
-      total_discounts: '0',
-      order_id: 2324324
-    });
-    // const resp = await avadaio.makeRequest({
-    //   endpoint: '/forms',
-    //   method: 'GET'
-    // });
-    console.log(resp);
-  } catch (e) {
-    console.error(e);
-  }
-})();
+      total_discounts: '0'
+    }
+  ]);
+  expect(success).toBe(true);
+});
