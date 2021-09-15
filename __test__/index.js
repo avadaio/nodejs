@@ -27,7 +27,8 @@ const AvadaEmailMarketing = require('../src');
         ],
         productId: 6101006319796,
         photoIncluded: 'no',
-        "photoUrl": "https://cdn.shopify.com/s/files/1/0457/4098/2438/products/black-bag-over-the-shoulder_925x_112781d2-f0b3-43de-97ea-121b020bf0a0_1024x1024@2x.jpg?v=1599548060",
+        photoUrl:
+          'https://cdn.shopify.com/s/files/1/0457/4098/2438/products/black-bag-over-the-shoulder_925x_112781d2-f0b3-43de-97ea-121b020bf0a0_1024x1024@2x.jpg?v=1599548060',
         updateReviewPhotoUrl:
           'https://thomas-photo-review-production.myshopify.com/products/clay-plant-pot'
       }

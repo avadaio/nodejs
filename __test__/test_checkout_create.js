@@ -33,7 +33,7 @@ const AvadaEmailMarketing = require('../src');
       total_tax: '0',
       total_price: '299',
       currency: '$',
-      presentment_currency: "USD",
+      presentment_currency: 'USD',
       customer: {
         id: 0,
         email: null,

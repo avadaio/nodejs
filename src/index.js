@@ -1,6 +1,7 @@
 const crypto = require('crypto');
 const fetch = require('node-fetch');
 const resources = require('./resources');
+const isEmpty = require('./utils');
 
 /**
  * @description
@@ -88,10 +89,6 @@ class AvadaEmailMarketing {
 
     return resp.json();
   }
-}
-
-function isEmpty(obj) {
-  return [Object, Array].includes((obj || {}).constructor) && !Object.entries(obj || {}).length;
 }
 
 resources.registerAll(AvadaEmailMarketing);

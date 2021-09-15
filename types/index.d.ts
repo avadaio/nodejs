@@ -68,7 +68,19 @@ declare class AvadaEmailMarketing {
     update: (
       data: AvadaEmailMarketing.CheckoutInputData
     ) => Promise<AvadaEmailMarketing.ApiResponse>;
-    remove: (id: number|string) => Promise<AvadaEmailMarketing.ApiResponse>;
+    remove: (id: number | string) => Promise<AvadaEmailMarketing.ApiResponse>;
+  };
+
+  order: {
+    create: (
+      data: AvadaEmailMarketing.OrderCreateInputData
+    ) => Promise<AvadaEmailMarketing.ApiResponse>;
+    update: (
+      data: AvadaEmailMarketing.OrderUpdateInputData
+    ) => Promise<AvadaEmailMarketing.ApiResponse>;
+    complete: (
+      data: AvadaEmailMarketing.OrderCreateInputData
+    ) => Promise<AvadaEmailMarketing.ApiResponse>;
   };
 }
 
@@ -89,6 +101,57 @@ declare namespace AvadaEmailMarketing {
     success: boolean;
     message: string;
     data?: any;
+  }
+
+  interface OrderCustomerDefaultAddress {
+    address1?: string;
+    city?: string;
+    country?: COUNTRY;
+    countryCode?: COUNTRY_CODE;
+    zip?: string;
+  }
+
+  interface OrderCustomerData {
+    id?: any;
+    email: string;
+    name?: string;
+    first_name?: string | null;
+    last_name?: string | null;
+    phone?: string;
+    orders_count?: number;
+    total_spent?: number;
+    default_address?: OrderCustomerDefaultAddress;
+  }
+
+  interface OrderCreateInputData {
+    id: number;
+    email: string;
+    name: string;
+    status: string;
+    customer: OrderCustomerData;
+    created_at: Date | string;
+    updated_at: Date | string;
+    line_items: CheckoutLineItem[];
+    order_status_url: string;
+    total_price: string;
+    shipping_price?: string;
+    gateway?: string;
+    subtotal_price: string;
+    total_tax: string;
+    total_weight: string;
+    currency: string;
+    presentment_currency: string;
+    phone?: string;
+    customer_locale?: string;
+    shipping_address?: Address;
+    billing_address?: Address;
+  }
+
+  interface OrderUpdateInputData {
+    id: number;
+    email: string;
+    status: string;
+    state: string;
   }
 
   interface CheckoutBundleItem {
@@ -126,8 +189,9 @@ declare namespace AvadaEmailMarketing {
     phone?: string;
   }
 
-  interface CheckoutShippingData {
+  interface Address {
     name?: string;
+    first_name: string;
     last_name?: string;
     phone?: string;
     company?: string;
@@ -138,6 +202,8 @@ declare namespace AvadaEmailMarketing {
     city?: string;
     province_code?: string;
     province?: string;
+    latitude?: string;
+    longitude?: string;
   }
 
   interface CheckoutInputData {
@@ -156,7 +222,7 @@ declare namespace AvadaEmailMarketing {
     currency: string;
     presentment_currency: string;
     customer?: CheckoutCustomerData;
-    shipping_address?: CheckoutShippingData;
+    shipping_address?: Address;
   }
 
   interface ReviewSubmitCustomer {

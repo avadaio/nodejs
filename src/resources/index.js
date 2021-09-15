@@ -1,4 +1,12 @@
-const resourceModules = ['connection', 'form', 'contact', 'subscriber', 'review', 'checkout'];
+const resourceModules = [
+  'connection',
+  'form',
+  'contact',
+  'subscriber',
+  'review',
+  'checkout',
+  'order'
+];
 
 /**
  * Registers resources on the `AvadaEmailMarketing` class.
