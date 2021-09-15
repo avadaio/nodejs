@@ -45,6 +45,10 @@ declare class AvadaEmailMarketing {
     update: (
       data: AvadaEmailMarketing.ContactInputData
     ) => Promise<AvadaEmailMarketing.ApiResponse>;
+
+    bulk: (
+      data: AvadaEmailMarketing.ContactInputData[]
+    ) => Promise<AvadaEmailMarketing.ApiResponse>;
   };
 
   subscriber: {
@@ -52,7 +56,9 @@ declare class AvadaEmailMarketing {
   };
 
   review: {
-    submit: (data: AvadaEmailMarketing.ReviewSubmitInputData) => Promise<AvadaEmailMarketing.ApiResponse>;
+    submit: (
+      data: AvadaEmailMarketing.ReviewSubmitInputData
+    ) => Promise<AvadaEmailMarketing.ApiResponse>;
   };
 }
 

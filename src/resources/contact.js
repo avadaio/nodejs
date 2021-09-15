@@ -39,6 +39,22 @@ class Contact {
       }
     });
   }
+
+  /**
+   * @description Create AVADA Email Marketing new contacts in bulk
+   *
+   * @param {AvadaEmailMarketing.ContactInputData[]} data
+   * @returns {Promise<*>}
+   */
+  bulk(data) {
+    return this.avadaio.makeRequest({
+      method: 'POST',
+      endpoint: '/customers/bulk',
+      body: {
+        data
+      }
+    });
+  }
 }
 
 module.exports = Contact;
