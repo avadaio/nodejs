@@ -81,6 +81,9 @@ declare class AvadaEmailMarketing {
     complete: (
       data: AvadaEmailMarketing.OrderCreateInputData
     ) => Promise<AvadaEmailMarketing.ApiResponse>;
+    bulk: (
+      data: AvadaEmailMarketing.OrderCreateInputData[]
+    ) => Promise<AvadaEmailMarketing.ApiResponse>;
   };
 }
 

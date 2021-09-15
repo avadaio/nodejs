@@ -55,6 +55,22 @@ class Order {
       }
     });
   }
+
+  /**
+   * @description Create AVADA Email Marketing new orders in bulk
+   *
+   * @param {AvadaEmailMarketing.OrderCreateInputData[]} data
+   * @returns {Promise<AvadaEmailMarketing.ApiResponse>}
+   */
+  bulk(data) {
+    return this.avadaio.makeRequest({
+      method: 'POST',
+      endpoint: `/orders/bulk`,
+      body: {
+        data
+      }
+    });
+  }
 }
 
 module.exports = Order;
