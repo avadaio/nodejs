@@ -7,7 +7,23 @@ const AvadaEmailMarketing = require('../src');
       appId: 'tTg4lFZkpV6vH74n6UB6',
       apiKey: 'd3af7f191829062d877871d4b28c3445'
     });
-    const resp = await avadaio.form.list();
+    const resp = await avadaio.contact.create({
+      description: 'ABC',
+      email: 'rainy@avada.io',
+      firstName: 'Pham',
+      isSubscriber: true,
+      lastName: 'Rainy',
+      phoneNumber: '+16194892038',
+      source: "magento",
+      phoneNumberCountry: "US",
+      orderCount: 0,
+      totalSpent: 0,
+      country: 'United States',
+      countryCode: 'US',
+      city: '',
+      address: '',
+      tags: 'Email Marketting'
+    });
     // const resp = await avadaio.makeRequest({
     //   endpoint: '/forms',
     //   method: 'GET'
