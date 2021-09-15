@@ -50,6 +50,10 @@ declare class AvadaEmailMarketing {
   subscriber: {
     add: (data: AvadaEmailMarketing.ContactInputData) => Promise<AvadaEmailMarketing.ApiResponse>;
   };
+
+  review: {
+    submit: (data: AvadaEmailMarketing.ReviewSubmitInputData) => Promise<AvadaEmailMarketing.ApiResponse>;
+  };
 }
 
 declare namespace AvadaEmailMarketing {
@@ -69,6 +73,38 @@ declare namespace AvadaEmailMarketing {
     success: boolean;
     message: string;
     data?: any;
+  }
+
+  interface ReviewSubmitCustomer {
+    firstName: string;
+    lastName: string;
+    reviewCount: number;
+  }
+
+  interface ReviewData {
+    rating: number;
+    author: string;
+    title: string;
+    content: string;
+    productTitle: string;
+    productUrl: string;
+    productId: string;
+    productSku: string;
+    productImage: string[];
+    orderId: string;
+    photoIncluded: YES_NO;
+    photoUrl: string;
+    videoIncluded: YES_NO;
+    thumbnailUrl: string;
+    videoUrl: string;
+    updateReviewPhotoUrl: string;
+  }
+
+  interface ReviewSubmitInputData {
+    email: string;
+    source?: SHOP_VENDOR;
+    customer: ReviewSubmitCustomer;
+    review: ReviewData;
   }
 
   interface ContactInputData {
@@ -92,6 +128,8 @@ declare namespace AvadaEmailMarketing {
      */
     tags?: string; // Comma seperated values
   }
+
+  type YES_NO = 'yes' | 'no';
 
   type CONTACT_STATUS = 'subscribe' | 'unsub' | 'notsub' | 'not-confirmed';
 

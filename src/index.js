@@ -59,9 +59,10 @@ class AvadaEmailMarketing {
    * @param {string} endpoint
    * @param {string} method
    * @param {boolean} isTest
+   * @param {boolean} isTrigger
    * @returns {Promise<*>}
    */
-  async makeRequest({endpoint, method = 'POST', isTest = false, body = {}}) {
+  async makeRequest({endpoint, method = 'POST', isTest = false, body = {}, isTrigger = false}) {
     const url = this.getApiUrl(endpoint);
     const headers = {
       'X-EmailMarketing-App-Id': this.appId,
@@ -72,6 +73,9 @@ class AvadaEmailMarketing {
     }
     if (isTest) {
       headers['X-EmailMarketing-Connection-Test'] = true;
+    }
+    if (isTrigger) {
+      headers['x-avadatrigger-app-id'] = true;
     }
     const options = {
       method: method,
