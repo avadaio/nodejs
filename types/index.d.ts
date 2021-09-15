@@ -88,6 +88,7 @@ declare class AvadaEmailMarketing {
     invoice: (
       data: AvadaEmailMarketing.InvoiceInputData
     ) => Promise<AvadaEmailMarketing.ApiResponse>;
+    ship: (data: AvadaEmailMarketing.ShipInputData) => Promise<AvadaEmailMarketing.ApiResponse>;
   };
 }
 
@@ -108,6 +109,33 @@ declare namespace AvadaEmailMarketing {
     success: boolean;
     message: string;
     data?: any;
+  }
+
+  interface ShippingTrack {
+    company?: string;
+    number?: string;
+    url?: string;
+  }
+
+  interface ShipLineItem extends CheckoutLineItem {
+    destination: Address;
+  }
+
+  interface ShipInputData {
+    id: number;
+    order_id: number;
+    email: string;
+    customer: OrderCustomerData;
+    currency: string;
+    order_status_url?: string;
+    tracks?: ShippingTrack[];
+    trackingCompany?: string;
+    trackingNumber?: string;
+    trackingUrl?: string;
+    created_at: Date | string;
+    updated_at: Date | string;
+    line_items: ShipLineItem[];
+    destination: Address;
   }
 
   interface InvoiceInputData {

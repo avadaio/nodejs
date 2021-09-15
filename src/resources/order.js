@@ -103,6 +103,22 @@ class Order {
       }
     });
   }
+
+  /**
+   * @description Trigger AVADA Email Marketing new shipment event
+   *
+   * @param {AvadaEmailMarketing.ShipInputData} data
+   * @returns {Promise<AvadaEmailMarketing.ApiResponse>}
+   */
+  ship(data) {
+    return this.avadaio.makeRequest({
+      method: 'POST',
+      endpoint: `/orders/ship`,
+      body: {
+        data
+      }
+    });
+  }
 }
 
 module.exports = Order;
