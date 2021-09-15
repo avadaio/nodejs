@@ -10,7 +10,7 @@ class Connection {
 
   /**
    * Test the connection to AVADA Email Marketing app
-   * @returns {Promise<*>}
+   * @returns {Promise<AvadaEmailMarketing.ApiResponse>}
    */
   test() {
     return this.avadaio.makeRequest({endpoint: '/connects', isTest: true});

@@ -9,13 +9,30 @@ class Contact {
   }
 
   /**
+   * @description Create AVADA Email Marketing new contact
    *
-   * @param {AvadaEmailMarketing.ContactCreateInputData} data
-   * @returns {Promise<*>}
+   * @param {AvadaEmailMarketing.ContactInputData} data
+   * @returns {Promise<AvadaEmailMarketing.ApiResponse>}
    */
   create(data) {
     return this.avadaio.makeRequest({
       method: 'POST',
+      endpoint: '/customers',
+      body: {
+        data
+      }
+    });
+  }
+
+  /**
+   * @description Update AVADA Email Marketing contact data
+   *
+   * @param {AvadaEmailMarketing.ContactInputData} data
+   * @returns {Promise<AvadaEmailMarketing.ApiResponse>}
+   */
+  update(data) {
+    return this.avadaio.makeRequest({
+      method: 'PUT',
       endpoint: '/customers',
       body: {
         data

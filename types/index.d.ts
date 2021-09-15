@@ -39,7 +39,11 @@ declare class AvadaEmailMarketing {
 
   contact: {
     create: (
-      data: AvadaEmailMarketing.ContactCreateInputData
+      data: AvadaEmailMarketing.ContactInputData
+    ) => Promise<AvadaEmailMarketing.ApiResponse>;
+
+    update: (
+        data: AvadaEmailMarketing.ContactInputData
     ) => Promise<AvadaEmailMarketing.ApiResponse>;
   };
 }
@@ -63,23 +67,29 @@ declare namespace AvadaEmailMarketing {
     data?: any;
   }
 
-  interface ContactCreateInputData {
-    description: string;
+  interface ContactInputData {
+    description?: string;
     email: string;
-    firstName: string;
-    isSubscriber: boolean;
-    lastName: string;
-    phoneNumber: string;
-    phoneNumberCountry: COUNTRY_CODE;
+    firstName?: string;
+    status?: CONTACT_STATUS;
+    isSubscriber?: boolean;
+    lastName?: string;
+    phoneNumber?: string;
+    phoneNumberCountry?: COUNTRY_CODE;
     source: SHOP_VENDOR;
-    orderCount: number;
-    totalSpent: number;
-    country: COUNTRY;
-    countryCode: COUNTRY_CODE;
-    city: string;
-    address: string;
-    tags: string; // Comma seperated values
+    orderCount?: number;
+    totalSpent?: number;
+    country?: COUNTRY;
+    countryCode?: COUNTRY_CODE;
+    city?: string;
+    address?: string;
+    /**
+     * @description  Comma seperated values
+     */
+    tags?: string; // Comma seperated values
   }
+
+  type CONTACT_STATUS = 'subscribe' | 'unsub' | 'notsub' | 'not-confirmed';
 
   type COUNTRY_CODE =
     | 'AF'
