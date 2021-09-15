@@ -75,13 +75,29 @@ class Order {
   /**
    * @description Trigger AVADA Email Marketing new refund event
    *
-   * @param {AvadaEmailMarketing.RefundInputData[]} data
+   * @param {AvadaEmailMarketing.RefundInputData} data
    * @returns {Promise<AvadaEmailMarketing.ApiResponse>}
    */
   refund(data) {
     return this.avadaio.makeRequest({
       method: 'POST',
       endpoint: `/orders/refund`,
+      body: {
+        data
+      }
+    });
+  }
+
+  /**
+   * @description Trigger AVADA Email Marketing new refund event
+   *
+   * @param {AvadaEmailMarketing.InvoiceInputData} data
+   * @returns {Promise<AvadaEmailMarketing.ApiResponse>}
+   */
+  invoice(data) {
+    return this.avadaio.makeRequest({
+      method: 'POST',
+      endpoint: `/orders/invoice`,
       body: {
         data
       }
