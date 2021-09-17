@@ -11,7 +11,7 @@ class Order {
   /**
    * @description Create AVADA Email Marketing new order
    *
-   * @param {AvadaEmailMarketing.OrderInputData} data
+   * @param {AvadaEmailMarketing.OrderCreateInputData} data
    * @returns {Promise<AvadaEmailMarketing.ApiResponse>}
    */
   create(data) {
@@ -27,7 +27,7 @@ class Order {
   /**
    * @description Update AVADA Email Marketing existed order
    *
-   * @param {AvadaEmailMarketing.OrderInputData} data
+   * @param {AvadaEmailMarketing.OrderUpdateInputData} data
    * @returns {Promise<AvadaEmailMarketing.ApiResponse>}
    */
   update(data) {
