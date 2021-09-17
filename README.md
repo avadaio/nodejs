@@ -1,6 +1,6 @@
 # AVADA Email Marketing API - NodeJS
 
-AVADA Email Marketing API bindings for NodeJS to make it easier for developer to connect with AVADA Marketing Automation platform.
+[AVADA Email Marketing]('https://app.avada.io') API bindings for NodeJS to make it easier for developer to connect with AVADA Marketing Automation platform.
 
 ## Table of Contents
 
@@ -173,4 +173,4 @@ Trigger an custom event to send automation emails
 
 ## Support
 
-If you need any support, you can reach to us within our customer chat support inside your [app]('https://app.avada.io'')
+If you need any support, you can reach to us within our customer chat support inside your [app]('https://app.avada.io')
