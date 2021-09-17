@@ -4,13 +4,29 @@
   "description": "AVADA Email Marketing API bindings for Node.js",
   "main": "dist/index.js",
   "typings": "./types/index.d.ts",
+  "author": "thomas@avada.io",
   "repository": {
     "email": "thomas@avada.io"
   },
+  "keywords": [
+    "avadaio",
+    "node",
+    "email-marketing",
+    "marketing-automation"
+  ],
+  "support": {
+    "email": "support@avada.io"
+  },
+  "homepage": "https://avada.io",
   "engines": {
     "node": ">=10",
     "npm": ">=5"
   },
+  "license": "MIT",
+  "files": [
+    "dist",
+    "types"
+  ],
   "scripts": {
     "prepare": "yarn run production",
     "production": "babel src --out-dir dist --copy-files --include-dotfiles",
@@ -19,7 +35,6 @@
     "test": "jest __test__ --runInBand",
     "test-single-file": "jest __test__/test_connection.test.js"
   },
-  "homepage": "https:/avada.io",
   "dependencies": {
     "crypto": "^1.0.1",
     "node-fetch": "^2.6.0"
@@ -36,16 +51,5 @@
     "eslint-plugin-prettier": "^3.1.0",
     "prettier": "^1.18.2",
     "jest": "^27.2.0"
-  },
-  "keywords": [
-    "avadaio",
-    "node",
-    "emailmarketing"
-  ],
-  "author": "thomas@avada.io",
-  "license": "MIT",
-  "files": [
-    "dist",
-    "types"
-  ]
+  }
 }

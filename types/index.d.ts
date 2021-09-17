@@ -27,7 +27,7 @@ declare class AvadaEmailMarketing {
   constructor(config: AvadaEmailMarketing.Config);
   getApiUrl: (endpoint: string) => string;
 
-  makeRequest: (params: AvadaEmailMarketing.MakeRequestParams) => Promise<any>;
+  makeRequest: (params: { endpoint: string, method: string }) => Promise<any>;
 
   trigger: (eventId: string, data: any) => Promise<AvadaEmailMarketing.ApiResponse>;
 
